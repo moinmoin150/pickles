@@ -8,8 +8,10 @@ credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
 
+storage_client = storage.Client(credentials=credentials)
+
+@st.experimental_memo(ttl=600)
 def download_blob_into_memory(bucket_name, blob_name):
-    storage_client = storage.Client(credentials=credentials)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
     contents = blob.download_as_string()
