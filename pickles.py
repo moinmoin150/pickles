@@ -15,6 +15,7 @@ def download_blob_into_memory(bucket_name, blob_name):
     contents = blob.download_as_string()
     return contents
 
-df = pickle.loads(download_blob_into_memory("voluble_transcription", "pickles/tweets_df.pkl"))
+# df = pickle.loads(download_blob_into_memory("voluble_transcription", "pickles/Replies to 1325516879033741319.csv"))
+df = pd.read_csv(download_blob_into_memory("voluble_transcription", "pickles/Replies to 1325516879033741319.csv"))
 st.dataframe(df.head())
 
