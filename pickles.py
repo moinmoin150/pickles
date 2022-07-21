@@ -15,10 +15,6 @@ def download_blob_into_memory(bucket_name, blob_name):
     contents = blob.download_as_string().decode("utf-8")
     return contents
 
-# df = pickle.loads(download_blob_into_memory("voluble_transcription", "pickles/Replies to 1325516879033741319.csv"))
-content = download_blob_into_memory("voluble_transcription", "pickles/Replies to 1325516879033741319.csv")
-for line in content.strip().split("\n"):
-    name, pet = line.split(",")[:2]
-    st.write(f"{name} has a :{pet}:")
-# st.dataframe(df.head())
+df = pickle.load(download_blob_into_memory("voluble_transcription", "pickles/ tweets_df.pkl"))
+st.dataframe(df.head())
 
