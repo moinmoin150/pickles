@@ -15,6 +15,6 @@ def download_blob_into_memory(bucket_name, blob_name):
     contents = blob.download_as_string().decode("windows-1252")
     return contents
 
-df = pickle.load(download_blob_into_memory("voluble_transcription", "pickles/tweets_df.pkl"))
+df = pickle.load(open(download_blob_into_memory("voluble_transcription", "pickles/tweets_df.pkl"),"rb"))
 st.dataframe(df.head())
 
