@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from google.cloud import storage
 from google.oauth2 import service_account
+import pickle
 
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
