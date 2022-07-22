@@ -4,11 +4,9 @@ from google.cloud import storage
 from google.oauth2 import service_account
 import pickle
 
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
-)
+export GOOGLE_APPLICATION_CREDENTIALS="google_crendentials.json"
 
-storage_client = storage.Client(credentials=credentials)
+storage_client = storage.Client()
 
 @st.experimental_memo
 def download_blob_into_memory(bucket_name, blob_name):
