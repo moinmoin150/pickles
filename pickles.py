@@ -10,7 +10,7 @@ credentials = service_account.Credentials.from_service_account_info(
 
 storage_client = storage.Client(credentials=credentials)
 
-@st.experimental_memo(persist="disk")
+@st.experimental_memo
 def download_blob_into_memory(bucket_name, blob_name):
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
