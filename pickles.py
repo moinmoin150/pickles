@@ -4,7 +4,7 @@ from google.cloud import storage
 from google.oauth2 import service_account
 import pickle
 
-export GOOGLE_APPLICATION_CREDENTIALS="google_crendentials.json"
+# export GOOGLE_APPLICATION_CREDENTIALS="google_crendentials.json"
 
 storage_client = storage.Client()
 
