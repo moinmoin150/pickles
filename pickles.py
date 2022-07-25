@@ -7,7 +7,7 @@ import os
 import json
 
 
-json_str = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+json_str = os.environ.get('GOOGLE_CREDENTIALS')
 json_data = json.loads(json_str)
 json_data['private_key'] = json_data['private_key'].replace('\\n', '\n')
 
